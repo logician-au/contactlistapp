@@ -16,9 +16,9 @@
             </div>
 
             <div class="form-group">
-                <label for="secondName" class="col-md-3 control-label">Second Name</label>
+                <label for="lastName" class="col-md-3 control-label">Last Name</label>
                 <div class="col-sm-6">
-                    <form:input path="secondName" type="text" cssClass="form-control" id="secondName" placeholder="Enter Second Name to search for here...." />
+                    <form:input path="lastName" type="text" cssClass="form-control" id="lastName" placeholder="Enter Last Name to search for here...." />
                 </div>
                 <div class="col-sm-3"></div>
             </div>
@@ -48,7 +48,7 @@
                     <thead>
                         <tr>
                             <th>First Name</th>
-                            <th>Second Name</th>
+                            <th>Last Name</th>
                             <th>Organisation</th>
                             <th class="text-center">Action</th>
                         <tr>
@@ -56,7 +56,7 @@
                     <c:forEach var="contact" items="${contacts}">
                         <tr class="vert-align">
                             <td>${contact.firstName}</td>
-                            <td>${contact.secondName}</td>
+                            <td>${contact.lastName}</td>
                             <td>${contact.organisationInfo}</td>
                             <td class="text-center">
                                 <a href="<c:url value="/contacts/${contact.id}"/>" class="btn btn-sm btn-info" style="padding: 0px 0px; width: 40px;">View</a>

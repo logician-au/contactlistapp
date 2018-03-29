@@ -66,7 +66,7 @@ public class ContactServiceImpl implements ContactService
     logger.debug("Query Criteria: " + criteria);
     String contactFirstName = criteria.getFirstName();
 
-    String contactSecondName = criteria.getSecondName();
+    String contactLastName = criteria.getLastName();
 
     String organisationName = criteria.getOrganisationName();
 
@@ -75,9 +75,9 @@ public class ContactServiceImpl implements ContactService
     {
       sbuilder.append("AND c.firstName like :contactFirstNamePattern ");
     }
-    if (StringUtils.hasText(contactSecondName))
+    if (StringUtils.hasText(contactLastName))
     {
-      sbuilder.append("AND c.secondName like :contactSecondNamePattern ");
+      sbuilder.append("AND c.lastName like :contactLastNamePattern ");
     }
     if (StringUtils.hasText(organisationName))
     {
@@ -91,9 +91,9 @@ public class ContactServiceImpl implements ContactService
     {
       q.setParameter("contactFirstNamePattern", contactFirstName);
     }
-    if (StringUtils.hasText(contactSecondName))
+    if (StringUtils.hasText(contactLastName))
     {
-      q.setParameter("contactSecondNamePattern", contactSecondName);
+      q.setParameter("contactLastNamePattern", contactLastName);
     }
     if (StringUtils.hasText(organisationName))
     {
@@ -115,7 +115,7 @@ public class ContactServiceImpl implements ContactService
       throw new EntityNotFoundException(String.format("Unable to find Entity: %s with id: %d", Contact.class.getCanonicalName(), contactDTO.getId()));
     }
     persistedContact.setFirstName(contactDTO.getFirstName());
-    persistedContact.setSecondName(contactDTO.getSecondName());
+    persistedContact.setLastName(contactDTO.getLastName());
     if (Integer.valueOf("-1").equals(contactDTO.getOrganisation().getId()))
     {
       persistedContact.setOrganisation(null);

@@ -22,15 +22,15 @@ public class ContactDTOValidator implements Validator
   public void validate(Object obj, Errors e)
   {
     ValidationUtils.rejectIfEmpty(e, "firstName", "firstName.empty");
-    ValidationUtils.rejectIfEmpty(e, "secondName", "secondName.empty");
+    ValidationUtils.rejectIfEmpty(e, "lastName", "lastName.empty");
     ContactDTO p = (ContactDTO) obj;
     if (p.getFirstName().length() > 30)
     {
       e.rejectValue("firstName", "firstName.too.long");
     }
-    if (p.getSecondName().length() > 30)
+    if (p.getLastName().length() > 30)
     {
-      e.rejectValue("secondName", "secondName.too.long");
+      e.rejectValue("lastName", "lastName.too.long");
     }
   }
 }
