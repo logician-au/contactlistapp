@@ -28,6 +28,8 @@ public class ContactDTO
 
   private String name;
 
+  private String secondName;
+
   private OrganisationDTO organisation;
 
   public ContactDTO()
@@ -38,6 +40,7 @@ public class ContactDTO
   {
     setId(contact.getId());
     setName(contact.getName());
+    setSecondName(contact.getSecondName());
     Organisation org = contact.getOrganisation();
     if (org != null)
     {
@@ -65,7 +68,15 @@ public class ContactDTO
     return this.name;
   }
 
-  public OrganisationDTO getOrganisation()
+  public String getSecondName() {
+	return secondName;
+}
+
+public void setSecondName(String secondName) {
+	this.secondName = secondName;
+}
+
+public OrganisationDTO getOrganisation()
   {
     return organisation;
   }

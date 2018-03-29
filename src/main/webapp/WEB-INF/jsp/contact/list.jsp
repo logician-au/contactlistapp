@@ -8,9 +8,17 @@
     <jsp:body>
         <form:form method="get" modelAttribute="searchCriteria" commonName="searchCriteria" cssClass="form-horizontal">
             <div class="form-group">
-                <label for="name" class="col-md-3 control-label">Name</label>
+                <label for="name" class="col-md-3 control-label">First Name</label>
                 <div class="col-sm-6">
-                    <form:input path="name" type="text" cssClass="form-control" id="name" placeholder="Enter name to search for here...." />
+                    <form:input path="name" type="text" cssClass="form-control" id="name" placeholder="Enter First Name to search for here...." />
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="secondName" class="col-md-3 control-label">Second Name</label>
+                <div class="col-sm-6">
+                    <form:input path="secondName" type="text" cssClass="form-control" id="secondName" placeholder="Enter Second Name to search for here...." />
                 </div>
                 <div class="col-sm-3"></div>
             </div>
@@ -39,7 +47,8 @@
         		<table class="table table-hover">
                     <thead>
                         <tr>
-                            <th>Name</th>
+                            <th>First Name</th>
+                            <th>Second Name</th>
                             <th>Organisation</th>
                             <th class="text-center">Action</th>
                         <tr>
@@ -47,6 +56,7 @@
                     <c:forEach var="contact" items="${contacts}">
                         <tr class="vert-align">
                             <td>${contact.name}</td>
+                            <td>${contact.secondName}</td>
                             <td>${contact.organisationInfo}</td>
                             <td class="text-center">
                                 <a href="<c:url value="/contacts/${contact.id}"/>" class="btn btn-sm btn-info" style="padding: 0px 0px; width: 40px;">View</a>

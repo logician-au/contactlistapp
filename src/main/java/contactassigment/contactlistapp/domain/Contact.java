@@ -14,6 +14,9 @@ public class Contact
   @Column(nullable = false, length = 30)
   private String name;
 
+  @Column(nullable = false, length = 30)
+  private String secondName;
+
   @ManyToOne(fetch = FetchType.LAZY, optional = true, cascade = CascadeType.MERGE)
   private Organisation organisation;
 
@@ -37,7 +40,15 @@ public class Contact
     this.name = name;
   }
 
-  public Organisation getOrganisation()
+  public String getSecondName() {
+	return secondName;
+}
+
+public void setSecondName(String secondName) {
+	this.secondName = secondName;
+}
+
+public Organisation getOrganisation()
   {
     return organisation;
   }
