@@ -64,14 +64,14 @@ public class ContactServiceImpl implements ContactService
   public List<ContactDTO> listByCriteriaFetchOrganisation(ContactSearchCriteriaDTO criteria)
   {
     logger.debug("Query Criteria: " + criteria);
-    String contactName = criteria.getName();
+    String contactFirstName = criteria.getFirstName();
 
     String organisationName = criteria.getOrganisationName();
 
     StringBuilder sbuilder = new StringBuilder("SELECT c FROM Contact c LEFT JOIN FETCH c.organisation o ");
-    if (StringUtils.hasText(contactName))
+    if (StringUtils.hasText(contactFirstName))
     {
-      sbuilder.append("AND c.name like :contactNamePattern ");
+      sbuilder.append("AND c.firstName like :contactFirstNamePattern ");
     }
     if (StringUtils.hasText(organisationName))
     {
@@ -81,9 +81,9 @@ public class ContactServiceImpl implements ContactService
     logger.debug("Query HQL: " + queryHQL);
     Query q = em.createQuery(queryHQL);
 
-    if (StringUtils.hasText(contactName))
+    if (StringUtils.hasText(contactFirstName))
     {
-      q.setParameter("contactNamePattern", contactName);
+      q.setParameter("contactFirstNamePattern", contactFirstName);
     }
     if (StringUtils.hasText(organisationName))
     {
@@ -104,7 +104,7 @@ public class ContactServiceImpl implements ContactService
     {
       throw new EntityNotFoundException(String.format("Unable to find Entity: %s with id: %d", Contact.class.getCanonicalName(), contactDTO.getId()));
     }
-    persistedContact.setName(contactDTO.getName());
+    persistedContact.setFirstName(contactDTO.getFirstName());
     if (Integer.valueOf("-1").equals(contactDTO.getOrganisation().getId()))
     {
       persistedContact.setOrganisation(null);

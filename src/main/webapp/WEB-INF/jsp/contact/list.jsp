@@ -8,9 +8,9 @@
     <jsp:body>
         <form:form method="get" modelAttribute="searchCriteria" commonName="searchCriteria" cssClass="form-horizontal">
             <div class="form-group">
-                <label for="name" class="col-md-3 control-label">First Name</label>
+                <label for="firstName" class="col-md-3 control-label">First Name</label>
                 <div class="col-sm-6">
-                    <form:input path="name" type="text" cssClass="form-control" id="name" placeholder="Enter First Name to search for here...." />
+                    <form:input path="firstName" type="text" cssClass="form-control" id="firstName" placeholder="Enter First Name to search for here...." />
                 </div>
                 <div class="col-sm-3"></div>
             </div>
@@ -55,7 +55,7 @@
                     </thead>
                     <c:forEach var="contact" items="${contacts}">
                         <tr class="vert-align">
-                            <td>${contact.name}</td>
+                            <td>${contact.firstName}</td>
                             <td>${contact.secondName}</td>
                             <td>${contact.organisationInfo}</td>
                             <td class="text-center">

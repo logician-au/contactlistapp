@@ -26,7 +26,7 @@ public class ContactDTO
 
   private Integer id;
 
-  private String name;
+  private String firstName;
 
   private String secondName;
 
@@ -39,7 +39,7 @@ public class ContactDTO
   public ContactDTO(Contact contact)
   {
     setId(contact.getId());
-    setName(contact.getName());
+    setFirstName(contact.getFirstName());
     setSecondName(contact.getSecondName());
     Organisation org = contact.getOrganisation();
     if (org != null)
@@ -58,14 +58,14 @@ public class ContactDTO
     this.id = id;
   }
 
-  public void setName(String name)
+  public void setFirstName(String firstName)
   {
-    this.name = name;
+    this.firstName = firstName;
   }
 
-  public String getName()
+  public String getFirstName()
   {
-    return this.name;
+    return this.firstName;
   }
 
   public String getSecondName() {

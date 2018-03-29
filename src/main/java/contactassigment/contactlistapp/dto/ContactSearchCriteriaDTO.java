@@ -3,18 +3,18 @@ package contactassigment.contactlistapp.dto;
 public class ContactSearchCriteriaDTO
 {
 
-  private String name = Constants.EMPTY_STRING;
+  private String firstName = Constants.EMPTY_STRING;
   private String secondName = Constants.EMPTY_STRING;
   private String organisationName = Constants.EMPTY_STRING;
 
-  public String getName()
+  public String getFirstName()
   {
-    return name;
+    return firstName;
   }
 
-  public void setName(String name)
+  public void setFirstName(String firstName)
   {
-    this.name = name;
+    this.firstName = firstName;
   }
 
   public String getSecondName() {

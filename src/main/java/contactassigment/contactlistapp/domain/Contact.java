@@ -12,7 +12,7 @@ public class Contact
   private Integer id;
 
   @Column(nullable = false, length = 30)
-  private String name;
+  private String firstName;
 
   @Column(nullable = false, length = 30)
   private String secondName;
@@ -30,14 +30,14 @@ public class Contact
     this.id = id;
   }
 
-  public String getName()
+  public String getFirstName()
   {
-    return name;
+    return firstName;
   }
 
-  public void setName(String name)
+  public void setFirstName(String firstName)
   {
-    this.name = name;
+    this.firstName = firstName;
   }
 
   public String getSecondName() {
