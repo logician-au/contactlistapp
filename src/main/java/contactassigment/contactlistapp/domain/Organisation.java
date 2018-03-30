@@ -20,6 +20,9 @@ public class Organisation
   @Column(nullable = false)
   private String name;
 
+  @Column(nullable = false)
+  private String abn;
+
   public Integer getId()
   {
     return id;
@@ -38,5 +41,13 @@ public class Organisation
   public void setName(String name)
   {
     this.name = name;
+  }
+
+  public String getAbn() {
+    return abn;
+  }
+
+  public void setAbn(String abn) {
+    this.abn = abn;
   }
 }
