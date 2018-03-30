@@ -91,7 +91,7 @@ public OrganisationDTO getOrganisation()
     OrganisationDTO org = getOrganisation();
     if (org != null)
     {
-      return org.getName();
+      return org.getName().concat(" (").concat(org.getFormattedAbn()).concat(")");
     }
     else
     {

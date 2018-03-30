@@ -1,5 +1,6 @@
 package contactassigment.contactlistapp.dto;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +26,7 @@ public class OrganisationDTO
 
   private Integer id;
   private String name;
+  private Long abn;
 
   public OrganisationDTO()
   {
@@ -34,6 +36,7 @@ public class OrganisationDTO
   {
     setId(organisation.getId());
     setName(organisation.getName());
+    setAbn(organisation.getAbn());
   }
 
   public Integer getId()
@@ -54,6 +57,19 @@ public class OrganisationDTO
   public void setName(String name)
   {
     this.name = name;
+  }
+
+  public Long getAbn() {
+    return abn;
+  }
+
+  public String getFormattedAbn() {
+	  DecimalFormat abnFormatter = new DecimalFormat(Constants.ABN_FORMAT);
+	  return abnFormatter.format(getAbn());
+  }
+
+  public void setAbn(Long abn) {
+    this.abn = abn;
   }
 
 }

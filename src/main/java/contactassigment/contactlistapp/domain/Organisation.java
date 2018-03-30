@@ -21,7 +21,7 @@ public class Organisation
   private String name;
 
   @Column(nullable = false)
-  private String abn;
+  private Long abn;
 
   public Integer getId()
   {
@@ -43,11 +43,11 @@ public class Organisation
     this.name = name;
   }
 
-  public String getAbn() {
+  public Long getAbn() {
     return abn;
   }
 
-  public void setAbn(String abn) {
+  public void setAbn(Long abn) {
     this.abn = abn;
   }
 }
