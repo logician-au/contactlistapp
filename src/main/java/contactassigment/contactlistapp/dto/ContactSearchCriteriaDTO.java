@@ -12,6 +12,11 @@ public class ContactSearchCriteriaDTO
     return firstName;
   }
 
+  public String getQueryFirstName()
+  {
+    return firstName.toLowerCase().replace('*', '%') + '%';
+  }
+
   public void setFirstName(String firstName)
   {
     this.firstName = firstName;
@@ -19,15 +24,24 @@ public class ContactSearchCriteriaDTO
 
   public String getLastName() {
 	return lastName;
-}
+  }
 
-public void setLastName(String lastName) {
-	this.lastName = lastName;
-}
+  public String getQueryLastName() {
+	return lastName.toLowerCase().replace('*', '%') + '%';
+  }
 
-public String getOrganisationName()
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
+
+  public String getOrganisationName()
   {
     return organisationName;
+  }
+
+  public String getQueryOrganisationName()
+  {
+    return organisationName.toLowerCase().replace('*', '%') + '%';
   }
 
   public void setOrganisationName(String organisationName)

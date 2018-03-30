@@ -64,24 +64,24 @@ public class ContactServiceImpl implements ContactService
   public List<ContactDTO> listByCriteriaFetchOrganisation(ContactSearchCriteriaDTO criteria)
   {
     logger.debug("Query Criteria: " + criteria);
-    String contactFirstName = criteria.getFirstName();
+    String contactFirstName = criteria.getQueryFirstName();
 
-    String contactLastName = criteria.getLastName();
+    String contactLastName = criteria.getQueryLastName();
 
-    String organisationName = criteria.getOrganisationName();
+    String organisationName = criteria.getQueryOrganisationName();
 
     StringBuilder sbuilder = new StringBuilder("SELECT c FROM Contact c LEFT JOIN FETCH c.organisation o ");
     if (StringUtils.hasText(contactFirstName))
     {
-      sbuilder.append("AND c.firstName like :contactFirstNamePattern ");
+      sbuilder.append("AND lower(c.firstName) like :contactFirstNamePattern ");
     }
     if (StringUtils.hasText(contactLastName))
     {
-      sbuilder.append("AND c.lastName like :contactLastNamePattern ");
+      sbuilder.append("AND lower(c.lastName) like :contactLastNamePattern ");
     }
     if (StringUtils.hasText(organisationName))
     {
-      sbuilder.append("AND o.name like :organisationNamePattern ");
+      sbuilder.append("AND lower(o.name) like :organisationNamePattern ");
     }
     String queryHQL = sbuilder.toString().replaceFirst("AND", "WHERE").trim();
     logger.debug("Query HQL: " + queryHQL);
