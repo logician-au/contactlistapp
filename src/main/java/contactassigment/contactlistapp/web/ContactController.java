@@ -40,9 +40,14 @@ public class ContactController
   {
     List<ContactDTO> contacts = contactService.listByCriteriaFetchOrganisation(contactSearchCriteria);
 
-    model.addAttribute("contacts", contacts);
-    model.addAttribute("searchCriteria", contactSearchCriteria);
-    return "/contact/list";
+    if (contacts.size() == 1) {
+        model.addAttribute("contact", contacts.get(0));
+        return "/contact/view";
+    } else {
+      model.addAttribute("contacts", contacts);
+      model.addAttribute("searchCriteria", contactSearchCriteria);
+      return "/contact/list";
+    }
   }
 
   @RequestMapping(value = "/contacts", method = RequestMethod.POST)
