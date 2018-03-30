@@ -47,16 +47,14 @@
         		<table class="table table-hover">
                     <thead>
                         <tr>
-                            <th>First Name</th>
-                            <th>Last Name</th>
+                            <th>Name</th>
                             <th>Organisation</th>
                             <th class="text-center">Action</th>
                         <tr>
                     </thead>
                     <c:forEach var="contact" items="${contacts}">
                         <tr class="vert-align">
-                            <td>${contact.firstName}</td>
-                            <td>${contact.lastName}</td>
+                            <td>${contact.firstName.concat(' ').concat(contact.lastName)}</td>
                             <td>${contact.organisationInfo}</td>
                             <td class="text-center">
                                 <a href="<c:url value="/contacts/${contact.id}"/>" class="btn btn-sm btn-info" style="padding: 0px 0px; width: 40px;">View</a>
