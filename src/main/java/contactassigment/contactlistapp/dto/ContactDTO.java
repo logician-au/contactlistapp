@@ -123,4 +123,17 @@ public class ContactDTO
       return Constants.EMPTY_STRING;
     }
   }
+
+  public String getOrganisationAbn()
+  {
+    OrganisationDTO org = getOrganisation();
+    if (org != null)
+    {
+      return org.getFormattedAbn();
+    }
+    else
+    {
+      return Constants.EMPTY_STRING;
+    }
+  }
 }

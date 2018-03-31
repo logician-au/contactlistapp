@@ -22,6 +22,16 @@
            </div>
 
            <div class="form-group">
+               <label for="organisationAbn">Organisation ABN</label>
+               <input id="organisationAbn" value="${contact.organisationAbn}" class="form-control" readonly>
+           </div>
+
+           <div class="form-group">
+               <label for="createDate">Created</label>
+               <input id="createDate" value="<fmt:formatDate pattern = "dd/MM/yyyy HH:MM:SS" value = "${contact.createDate}" />" class="form-control" readonly>
+           </div>
+
+           <div class="form-group">
                <a href="${pageContext.servletContext.contextPath}/contacts/${contact.id}/edit" class="btn btn-info">
                    Edit
                </a>
