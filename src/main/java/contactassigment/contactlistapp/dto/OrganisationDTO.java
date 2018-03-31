@@ -65,7 +65,7 @@ public class OrganisationDTO
 
   public String getFormattedAbn() {
 	  DecimalFormat abnFormatter = new DecimalFormat(Constants.ABN_FORMAT);
-	  return abnFormatter.format(getAbn());
+	  return abnFormatter.format(getAbn()).replace(Constants.ABN_PLACEHOLD, Constants.ABN_SPACER);
   }
 
   public void setAbn(Long abn) {
