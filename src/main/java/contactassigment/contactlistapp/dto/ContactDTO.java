@@ -1,6 +1,7 @@
 package contactassigment.contactlistapp.dto;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import contactassigment.contactlistapp.domain.Contact;
@@ -29,6 +30,8 @@ public class ContactDTO
   private String firstName;
 
   private String lastName;
+  
+  private Date createDate;
 
   private OrganisationDTO organisation;
 
@@ -41,6 +44,7 @@ public class ContactDTO
     setId(contact.getId());
     setFirstName(contact.getFirstName());
     setLastName(contact.getLastName());
+    setCreateDate(contact.getCreateDate());
     Organisation org = contact.getOrganisation();
     if (org != null)
     {
@@ -69,14 +73,22 @@ public class ContactDTO
   }
 
   public String getLastName() {
-	return lastName;
-}
+    return lastName;
+  }
 
-public void setLastName(String lastName) {
-	this.lastName = lastName;
-}
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
 
-public OrganisationDTO getOrganisation()
+  public Date getCreateDate() {
+    return createDate;
+  }
+
+  public void setCreateDate(Date createDate) {
+    this.createDate = createDate;
+  }
+
+  public OrganisationDTO getOrganisation()
   {
     return organisation;
   }

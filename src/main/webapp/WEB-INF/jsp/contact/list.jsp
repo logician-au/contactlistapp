@@ -49,6 +49,7 @@
                         <tr>
                             <th>Name</th>
                             <th>Organisation</th>
+                            <th>Date Created</th>
                             <th class="text-center">Action</th>
                         <tr>
                     </thead>
@@ -56,6 +57,7 @@
                         <tr class="vert-align">
                             <td>${contact.firstName.concat(' ').concat(contact.lastName)}</td>
                             <td>${contact.organisationInfo}</td>
+                            <td><fmt:formatDate pattern = "dd/MM/yyyy" value = "${contact.createDate}" /></td>
                             <td class="text-center">
                                 <a href="<c:url value="/contacts/${contact.id}"/>" class="btn btn-sm btn-info" style="padding: 0px 0px; width: 40px;">View</a>
                             </td>

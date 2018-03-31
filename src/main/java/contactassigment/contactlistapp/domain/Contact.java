@@ -1,6 +1,10 @@
 package contactassigment.contactlistapp.domain;
 
+import java.util.Date;
+
 import javax.persistence.*;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
 public class Contact
@@ -16,6 +20,10 @@ public class Contact
 
   @Column(nullable = false, length = 30)
   private String lastName;
+  
+  @CreationTimestamp
+  @Column(nullable = false, updatable = false)
+  private Date createDate; // Does not work with LocalDateTime, which is Java 8+ anyway
 
   @ManyToOne(fetch = FetchType.LAZY, optional = true, cascade = CascadeType.MERGE)
   private Organisation organisation;
@@ -42,13 +50,21 @@ public class Contact
 
   public String getLastName() {
 	return lastName;
-}
+  }
 
-public void setLastName(String lastName) {
-	this.lastName = lastName;
-}
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
 
-public Organisation getOrganisation()
+  public Date getCreateDate() {
+    return createDate;
+  }
+
+  public void setCreateDate(Date createDate) {
+    this.createDate = createDate;
+  }
+
+  public Organisation getOrganisation()
   {
     return organisation;
   }
