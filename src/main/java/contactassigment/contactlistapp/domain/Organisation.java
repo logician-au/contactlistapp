@@ -20,7 +20,7 @@ public class Organisation
   @Column(nullable = false)
   private String name;
 
-  @Column(nullable = false)
+  @Column(nullable = false)  // TO DO: ABN validation as per Australian government website
   private Long abn;
 
   public Integer getId()
