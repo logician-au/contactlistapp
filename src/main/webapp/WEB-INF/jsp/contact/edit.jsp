@@ -30,7 +30,7 @@
                     <spring:bind path="lastName">
                         <div
 					class="form-group ${status.error ? 'has-error' : ''}">
-                            <label for="lastName">First Name<span
+                            <label for="lastName">Last Name<span
 						style="color: red">*</span></label>
                             <form:input path="lastName" type="text"
 						class="form-control" id="lastName" placeholder="Last Name" />
