@@ -14,7 +14,7 @@ public class ContactSearchCriteriaDTO
 
   public String getQueryFirstName()
   {
-    return firstName.toLowerCase().replace('*', '%') + '%';
+    return getQueryString(firstName);
   }
 
   public void setFirstName(String firstName)
@@ -27,7 +27,7 @@ public class ContactSearchCriteriaDTO
   }
 
   public String getQueryLastName() {
-	return lastName.toLowerCase().replace('*', '%') + '%';
+	return getQueryString(lastName);
   }
 
   public void setLastName(String lastName) {
@@ -41,11 +41,15 @@ public class ContactSearchCriteriaDTO
 
   public String getQueryOrganisationName()
   {
-    return organisationName.toLowerCase().replace('*', '%') + '%';
+    return getQueryString(organisationName);
   }
 
   public void setOrganisationName(String organisationName)
   {
     this.organisationName = organisationName;
+  }
+  
+  private String getQueryString(String matchString) {
+	  return matchString.toLowerCase().replace('*', '%') + '%';
   }
 }
