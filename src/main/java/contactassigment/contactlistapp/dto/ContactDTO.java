@@ -103,7 +103,7 @@ public class ContactDTO
     OrganisationDTO org = getOrganisation();
     if (org != null)
     {
-      return org.getName().concat(" (").concat(org.getFormattedAbn()).concat(")");
+      return org.getOrganisationInfo();
     }
     else
     {

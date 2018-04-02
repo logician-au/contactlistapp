@@ -23,7 +23,8 @@ public class Contact
   
   @CreationTimestamp
   @Column(nullable = false, updatable = false)
-  private Date createDate; // Does not work with LocalDateTime, which is Java 8+ anyway
+  private Date createDate; // TO DO: Update to LocalDateTime (Java 8+)
+                           //        Get this field to automatically populate, with directive or trigger
 
   @ManyToOne(fetch = FetchType.LAZY, optional = true, cascade = CascadeType.MERGE)
   private Organisation organisation;

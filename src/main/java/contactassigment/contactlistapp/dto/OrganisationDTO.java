@@ -63,13 +63,18 @@ public class OrganisationDTO
     return abn;
   }
 
+  public void setAbn(Long abn) {
+    this.abn = abn;
+  }
+
   public String getFormattedAbn() {
 	  DecimalFormat abnFormatter = new DecimalFormat(Constants.ABN_FORMAT);
 	  return abnFormatter.format(getAbn()).replace(Constants.ABN_PLACEHOLD, Constants.ABN_SPACER);
   }
 
-  public void setAbn(Long abn) {
-    this.abn = abn;
+  public String getOrganisationInfo()
+  {
+    return this.getName().concat(" (").concat(this.getFormattedAbn()).concat(")");
   }
 
 }
