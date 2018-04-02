@@ -27,6 +27,18 @@
                         </div>
                     </spring:bind>
 
+                    <spring:bind path="lastName">
+                        <div
+					class="form-group ${status.error ? 'has-error' : ''}">
+                            <label for="lastName">First Name<span
+						style="color: red">*</span></label>
+                            <form:input path="lastName" type="text"
+						class="form-control" id="lastName" placeholder="Last Name" />
+                            <form:errors path="lastName"
+						class="control-label" />
+                        </div>
+                    </spring:bind>
+
                     <spring:bind path="organisation.id">
                         <div class="form-group">
                             <label for="organisationId">Organisation</label>
